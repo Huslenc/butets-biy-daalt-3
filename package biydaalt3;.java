@@ -45,44 +45,7 @@ class Graph {
         }
     }
 
-    // --------------------------
-    //  EXTRA: ASCII GRAPH OUTPUT
-    // --------------------------
-    void printAsciiGraph() {
-        System.out.println("\n----------------------------------------");
-        System.out.println("ASCII GRAPH (All edges with weights)");
-        System.out.println("----------------------------------------");
-
-        for (Edge e : edge) {
-            System.out.println(
-                "(" + e.src + ") ----" + e.weight + "---- (" + e.dest + ")"
-            );
-        }
-        System.out.println("----------------------------------------\n");
-    }
-
-    void printAsciiMST(Edge result[], int eCount) {
-        System.out.println("\n----------------------------------------");
-        System.out.println("ASCII GRAPH (MST Only)");
-        System.out.println("----------------------------------------");
-
-        for (int i = 0; i < eCount; i++) {
-            Edge e = result[i];
-            System.out.println(
-                "(" + e.src + ") ----" + e.weight + "---- (" + e.dest + ")  [SELECTED]"
-            );
-        }
-
-        System.out.println("----------------------------------------\n");
-    }
-
-    // ---------------------------
-    //  KRUSKAL MST WITH ASCII
-    // ---------------------------
     void KruskalMST() {
-
-        printAsciiGraph();  // Show graph before processing
-
         Edge result[] = new Edge[V];
         int e = 0;
         int i = 0;
@@ -115,7 +78,7 @@ class Graph {
             }
         }
 
-        System.out.println("MST Edges:");
+        System.out.println("MST ирмэгүүд:");
         int minimumCost = 0;
         for (i = 0; i < e; ++i) {
             System.out.println(
@@ -124,15 +87,10 @@ class Graph {
             minimumCost += result[i].weight;
         }
 
-        System.out.println("Minimum Cost Spanning Tree = " + minimumCost);
-
-        // Print MST ASCII
-        printAsciiMST(result, e);
+        System.out.println("Хамгийн бага зардалтай Spanning Tree = " + minimumCost);
     }
 
-
     public static void main(String[] args) {
-
         int V = 4;
         int E = 5;
         Graph graph = new Graph(V, E);
